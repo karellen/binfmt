@@ -58,10 +58,10 @@ jobs:
             TAG_PREFIX=${{ github.event.inputs.target }}-
             GIT_TAG=${{ github.event.inputs.target }}/${{ github.event.inputs.qemu_version }}-${{ github.run_number }}
           fi
-          echo ::set-output name=repo::${REPO}
-          echo ::set-output name=ref::${REF}
-          echo ::set-output name=tag_prefix::${TAG_PREFIX}
-          echo ::set-output name=git_tag::${GIT_TAG}
+          echo repo=${REPO} >> $GITHUB_OUTPUT
+          echo ref=${REF} >> $GITHUB_OUTPUT
+          echo tag_prefix=${TAG_PREFIX} >> $GITHUB_OUTPUT
+          echo git_tag=${GIT_TAG} >> $GITHUB_OUTPUT
       -
         name: Docker meta
         id: meta
@@ -83,7 +83,7 @@ jobs:
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
         with:
-          image: ${{ env.REPO_SLUG }}:master
+          image: tonistiigi/binfmt:master
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
