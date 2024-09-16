@@ -1,11 +1,11 @@
 variable "REPO" {
-  default = "tonistiigi/binfmt"
+  default = "karellen/binfmt"
 }
 variable "QEMU_REPO" {
   default = "https://github.com/qemu/qemu"
 }
 variable "QEMU_VERSION" {
-  default = "v8.1.5"
+  default = "v9.0.2"
 }
 variable "QEMU_PATCHES" {
   default = "cpu-max-arm"
