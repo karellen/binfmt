@@ -1,11 +1,15 @@
 # Binfmt
 
-[![GitHub release](https://img.shields.io/github/release/tonistiigi/binfmt.svg?style=flat-square)](https://github.com/tonistiigi/binfmt/releases/latest)
-[![CI Status](https://img.shields.io/github/actions/workflow/status/tonistiigi/binfmt/ci.yml?label=ci&logo=github&style=flat-square)](https://github.com/tonistiigi/binfmt/actions?query=workflow%3Aci)
-[![Go Report Card](https://goreportcard.com/badge/github.com/tonistiigi/binfmt?style=flat-square)](https://goreportcard.com/report/github.com/tonistiigi/binfmt)
-[![Docker Pulls](https://img.shields.io/docker/pulls/tonistiigi/binfmt.svg?style=flat-square&logo=docker)](https://hub.docker.com/r/tonistiigi/binfmt/)
+[![GitHub release](https://img.shields.io/github/release/karellen/binfmt.svg?style=flat-square)](https://github.com/karellen/binfmt/releases/latest)
+[![CI Status](https://img.shields.io/github/actions/workflow/status/karellen/binfmt/ci.yml?label=ci&logo=github&style=flat-square)](https://github.com/karellen/binfmt/actions?query=workflow%3Aci)
+[![Go Report Card](https://goreportcard.com/badge/github.com/karellen/binfmt?style=flat-square)](https://goreportcard.com/report/github.com/karellen/binfmt)
+<!--- [![Docker Pulls](https://img.shields.io/docker/pulls/tonistiigi/binfmt.svg?style=flat-square&logo=docker)](https://hub.docker.com/r/tonistiigi/binfmt/) --->
 
 Cross-platform emulator collection distributed with Docker images.
+
+# THIS IS A KARELLEN, INC. FORK OF [tonistiigi/binfmt](https://github.com/tonistiigi/binfmt).
+
+No affiliation with or endorsement by Docker, Inc. Use at OWN risk.
 
 ## Build local binaries
 
@@ -50,8 +54,8 @@ Prints similar to:
 ## Installing emulators
 
 ```bash
-docker run --privileged --rm tonistiigi/binfmt --install all
-docker run --privileged --rm tonistiigi/binfmt --install arm64,riscv64,arm
+docker run --privileged --rm ghcr.io/karellen/binfmt --install all
+docker run --privileged --rm ghcr.io/karellen/binfmt --install arm64,riscv64,arm
 ```
 
 ## Installing emulators from Docker-Compose
@@ -60,7 +64,7 @@ docker run --privileged --rm tonistiigi/binfmt --install arm64,riscv64,arm
 version: "3"
 services:
   emulator:
-    image: tonistiigi/binfmt
+    image: ghcr.io/karellen/binfmt
     container_name: emulator
     privileged: true
     command: --install all
@@ -72,7 +76,7 @@ Only use container `restart-policy` as `no`, otherwise docker will keep restarti
 ## Uninstalling emulators
 
 ```bash
-docker run --privileged --rm tonistiigi/binfmt --uninstall qemu-aarch64
+docker run --privileged --rm ghcr.io/karellen/binfmt --uninstall qemu-aarch64
 ```
 
 Emulator names can be found from the status output.
@@ -80,13 +84,13 @@ Emulator names can be found from the status output.
 You can also uninstall all archs for a specific emulator:
 
 ```bash
-docker run --privileged --rm tonistiigi/binfmt --uninstall qemu-*
+docker run --privileged --rm ghcr.io/karellen/binfmt --uninstall qemu-*
 ```
 
 ## Display version
 
 ```bash
-docker run --privileged --rm tonistiigi/binfmt --version
+docker run --privileged --rm ghcr.io/karellen/binfmt --version
 ```
 ```
 binfmt/9a44d27 qemu/v6.0.0 go/1.15.11
@@ -115,7 +119,7 @@ docker run --rm arm64v8/alpine uname -a
 docker run --rm arm32v7/alpine uname -a
 docker run --rm ppc64le/alpine uname -a
 docker run --rm s390x/alpine uname -a
-docker run --rm tonistiigi/debian:riscv uname -a
+docker run --rm ghcr.io/karellen/debian:riscv uname -a
 ```
 
 ## `buildkit` target
