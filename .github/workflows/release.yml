@@ -26,7 +26,7 @@ on:
         default: 'true'
 
 env:
-  REPO_SLUG: karellen/binfmt
+  REPO_SLUG: ghcr.io/karellen/binfmt
   CACHE_GHA_SCOPE_CROSS: binfmt-cross
 
 jobs:
