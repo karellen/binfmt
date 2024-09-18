@@ -34,7 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read
+      contents: write
+      workflows: write
     steps:
       -
         name: Checkout

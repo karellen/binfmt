@@ -1,5 +1,5 @@
 variable "REPO" {
-  default = "karellen/binfmt"
+  default = "ghcr.io/karellen/binfmt"
 }
 variable "QEMU_REPO" {
   default = "https://github.com/qemu/qemu"
